@@ -4,9 +4,16 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <RootNamespace>JSettings.Core</RootNamespace>
         <LangVersion>7.3</LangVersion>
-        <PackageVersion>0.0.9</PackageVersion>
+        <PackageVersion>1.0.0</PackageVersion>
         <Authors>Sergey Saharuk</Authors>
         <PackageId>JSettings</PackageId>
+        <Title>JSettings components</Title>
+        <RepositoryUrl>https://github.com/KyMback/JSettings</RepositoryUrl>
+        <PackageLicenseUrl>https://github.com/KyMback/JSettings/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <Description>This library provides an easy way to use json settings in your application.</Description>
+        <Copyright>Copyright © 2018-2019 Sergey Saharuk</Copyright>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
 
     <ItemGroup>
