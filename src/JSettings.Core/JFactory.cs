@@ -54,7 +54,7 @@ namespace JSettings.Core
         
         private JObject GetJObjectFromFile(string fileName)
         {
-            using (var reader = new StreamReader(Path.Combine(Configurations.BasePath, fileName)))
+            using (var reader = new StreamReader(GetResultPath(fileName)))
             {
                 return JObject.Parse(reader.ReadToEnd());
             }
@@ -62,7 +62,7 @@ namespace JSettings.Core
         
         private async Task<JObject> GetJObjectFromFileAsync(string fileName)
         {
-            using (var reader = new StreamReader(fileName))
+            using (var reader = new StreamReader(GetResultPath(fileName)))
             {
                 return JObject.Parse(await reader.ReadToEndAsync());
             }
@@ -73,6 +73,13 @@ namespace JSettings.Core
             return Configurations.IsEnvironmentVariablesUsed
                 ? JsonSettingsParserHelper.GetSettingsWithEnvVariables<TSettings>(resultSettings)
                 : resultSettings.ToObject<TSettings>();
+        }
+
+        private string GetResultPath(string fileName)
+        {
+            return !string.IsNullOrWhiteSpace(Configurations.BasePath)
+                ? Path.Combine(Configurations.BasePath, fileName)
+                : fileName;
         }
     }
 }
